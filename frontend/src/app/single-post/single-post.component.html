@@ -1,0 +1,21 @@
+<div class="post-card" *ngIf="post$ | async as Post">
+    <img [src]="Post.imageUrl">
+    <p *ngIf="Post.location">Photo prise à {{ Post.location }}</p>
+    <p>Mis en ligne le {{ Post.createdDate | date: 'longDate' }}</p>
+    <p class="text">{{ Post.text }}</p>
+    <div class="like-buttons" *ngIf="!likePending">
+        <div class="likes">
+          <i [ngClass]="{ 'fas liked': likes, 'far': !likes, 'disabled': dislikes }" class="like fa-thumbs-up fa-lg" (click)="onLikes()"></i>
+          <span>{{ Post.likes }}</span>
+        </div>
+        <div class="dislikes">
+          <i [ngClass]="{ 'fas disliked': dislikes, 'far': !dislikes, 'disabled': likes }" class="dislike fa-thumbs-down fa-lg" (click)="onDislikes()"></i>
+          <span>{{ Post.dislikes }}</span>
+        </div>
+    </div>
+    <div class="control-buttons">
+        <button mat-raised-button (click)="onBack()">BACK</button>
+        <button mat-raised-button color="primary" (click)="onModify()" *ngIf="userId === Post.userId">MODIFY</button>
+        <!-- <button mat-raised-button color="warn" (click)="onDelete()" *ngIf="userId === Post.userId">DELETE</button> -->
+    </div>
+</div>

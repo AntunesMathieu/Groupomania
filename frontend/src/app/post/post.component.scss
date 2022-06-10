@@ -1,0 +1,56 @@
+.post-card {
+    width: 30%;
+    margin: 20px auto;
+    padding: 10px 30px;
+    box-shadow: #FFD7D7 4px 4px 20px;
+    img {
+      width: 100%;
+    }
+    p {
+      font-size: 18px;
+      color: #4E5166;
+    }
+    .text{
+      font-weight: bold;
+      font-size: 22px;
+    }
+    button {
+      background-color: transparent;
+      box-sizing: border-box;
+      padding: 5px 10px;
+      border: none;
+      box-shadow: #FFD7D7 3px 3px 7px;
+      margin-right: 20px;
+      outline: none;
+      font-size: 18px;
+      font-weight: 500;
+      &:active {
+        transform: translate(1px, 1px);
+        box-shadow: #FFD7D7 0 0 5px;
+      }
+    }
+    .like
+    {
+      background-color: rgba(green, 0.4);
+      color: #000;
+      button {
+        box-shadow: green 3px 3px 7px;
+        color: #000;
+        &:active {
+          box-shadow: green 0 0 5px;
+        }
+      }
+    }
+  
+    .dislike {
+      background-color: rgba(#FD2D01, 0.4);
+      color: #000;
+      button {
+        box-shadow: #FD2D01 3px 3px 7px;
+        color: #000;
+        &:active {
+          box-shadow: #FD2D01 0 0 5px;
+        }
+      }
+    }
+  }

@@ -1,0 +1,16 @@
+<form [formGroup]="postForm" *ngIf="!loading">
+  <div class="form-group">
+    <label for="text">Rédigez votre post</label>
+    <input type="text" class="form-control" id="text" formControlName="text">
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="location" class="form-control" id="location" formControlName="location">
+  </div>
+  <div class="form-group">
+    <input type="file" accept="image/*" #imageInput (change)="onFileAdd($event)">
+    <button mat-raised-button color="primary" (click)="imageInput.click()">ADD IMAGE</button>
+    <img [src]="imagePreview" *ngIf="imagePreview" style="max-height: 100px;display:block;margin-top:10px">
+  </div>
+  <button (click)="onSubmit()" [disabled]="postForm.invalid">SUBMIT</button>
+</form>

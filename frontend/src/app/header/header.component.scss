@@ -1,0 +1,41 @@
+header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: justify;
+}
+
+
+#logo{
+  width: 300px;
+}
+img{
+  object-fit: cover;
+  width: 95%;
+  margin-left: 15px;
+  text-align: center;
+}
+
+.right-nav ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  text-align: center;
+}
+
+li{
+  margin-right: 15px;
+}
+
+a{
+  text-decoration: none;
+  color: #FD2D01;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.active {
+  color: #FD2D01;
+  text-decoration: underline #4E5166 2px;
+}

@@ -1,0 +1,12 @@
+<form [formGroup]="loginForm" *ngIf="!loading" class="form">
+    <div class="form-group">
+      <label for="email"><p class="name">Email</p></label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password"><p class="name">Password</p></label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="onLogin()">LOGIN</button>
+    <p class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</p>
+</form>
