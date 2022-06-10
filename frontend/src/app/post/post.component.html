@@ -1,0 +1,18 @@
+<div class="post-card">
+    <ng-container *ngIf="posts$ | async as posts">
+        <p *ngIf="!loading && posts.length <= 0">
+          No posts to display!
+        </p>
+        <p class="list-title" *ngIf="!loading && posts.length > 0">THE POST</p>
+        <div class="sauce-list" *ngIf="!loading && posts.length  > 0">
+          <div class="sauce-list-item" *ngFor="let post of posts" (click)="onClickPost(post._id)">
+            <img alt="Hot sauce bottle" [src]="post.imageUrl">
+            <p>Mis en ligne le {{ post.createdDate }}</p>
+            <p>Photo prise à {{ post.location }}</p>
+            <p>{{ post.text }}</p>
+            <p>{{ post.likes }}</p>
+            <p>{{ post.dislikes }}</p>
+          </div>
+        </div>
+      </ng-container>
+</div>

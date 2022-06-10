@@ -1,0 +1,21 @@
+.form{
+    margin-top: 25px;
+}
+.form-group{
+    display: flex;
+    flex-direction: row;
+
+    & label{
+        color: #FD2D01;
+        margin-right: 15px;
+    }
+
+    & input{
+        width: 300px;
+        height: 20px;
+    }
+}
+
+.name{
+    color: #FD2D01;
+}

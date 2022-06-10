@@ -1,0 +1,30 @@
+<header>
+    <div id="logo">
+        <img src="../../assets/images/logo.png" alt="Logo Groupomania orange">
+    </div>
+
+    <div class="right-nav">
+        <ul>
+        <li>
+            <a routerLink="create-post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" *ngIf="isAuth$ | async">
+                Créer un post
+            </a>
+        </li>
+        <li>
+            <a (click)="onLogout()" *ngIf="isAuth$ | async">
+                Se déconnecter
+            </a>
+        </li>
+        <li>
+            <a routerLink="signup" routerLinkActive="active" *ngIf="isAuth$ | async">
+                Créer un compte
+            </a>
+        </li>
+        <li>
+            <a routerLink="login" routerLinkActive="active" *ngIf="isAuth$ | async">
+                Se connecter
+            </a>
+        </li>
+        </ul>
+    </div>
+</header>
