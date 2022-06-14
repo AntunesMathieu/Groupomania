@@ -1,23 +1,14 @@
 <div class="signup">
     <form [formGroup]="signupForm" *ngIf="!loading">
-        <!-- <div class="form-group">
-            <label for="firstname">Prémon</label>
-            <input type="text" id="firstname" formControlName="firstname">
-        </div>
-
         <div class="form-group">
-            <label for="lastname">Nom</label>
-            <input type="text" id="lastname" name="lastname" formControlName="userLastName">
-        </div> -->
-        <div class="form-group">
-            <label for="email">Adresse Mail</label>
-            <input type="email" id="email" formControlName]="email">
+            <label for="email" color="primaire">Adresse Mail</label>
+            <input type="email" id="email" formControlName="email">
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
             <input type="password" id="password" formControlName="password">
         </div>
-        <button [disabled]="signupForm.invalid" (click)="onSignup()">SIGN UP</button>
+        <button [disabled]="signupForm.invalid" (click)="onSignup()">Création</button>
         <p class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</p>
     </form>
 </div>

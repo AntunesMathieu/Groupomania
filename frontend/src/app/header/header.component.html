@@ -5,26 +5,26 @@
 
     <div class="right-nav">
         <ul>
-        <li>
-            <a routerLink="create-post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" *ngIf="isAuth$ | async">
-                Créer un post
-            </a>
-        </li>
-        <li>
-            <a (click)="onLogout()" *ngIf="isAuth$ | async">
-                Se déconnecter
-            </a>
-        </li>
-        <li>
-            <a routerLink="signup" routerLinkActive="active" *ngIf="isAuth$ | async">
-                Créer un compte
-            </a>
-        </li>
-        <li>
-            <a routerLink="login" routerLinkActive="active" *ngIf="isAuth$ | async">
-                Se connecter
-            </a>
-        </li>
+            <li>
+                <a (click)="onLogout()" routerLinkActive="active" *ngIf="isAuth$ | async">
+                    Se déconnecter
+                </a>
+            </li>
+            <li>
+                <a routerLink="signup" routerLinkActive="active">
+                    Créer un compte
+                </a>
+            </li>
+            <li>
+                <a routerLink="login" routerLinkActive="active">
+                    Se connecter
+                </a>
+            </li>
+            <li>
+                <a routerLink="create-post" routerLinkActive="active" *ngIf="isAuth$ | async">
+                    Créer un post
+                </a>
+            </li>
         </ul>
     </div>
 </header>

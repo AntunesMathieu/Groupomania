@@ -72,22 +72,10 @@ export class PostFormComponent implements OnInit {
     this.loading = true;
     const newPost = new Post();
     newPost.text = this.postForm.get('text')!.value;
-    newPost.location =this.postForm.get('location')!.value;
     newPost.userId = this.auth.getUserId();
     if (this.mode === 'new') {
-      this.posts.createPost(newPost, this.postForm.get('image')!.value).pipe(
-        // tap(({ message }) => {
-        //   console.log(message);
-        //   this.loading = false;
-        //   this.router.navigate(['/post']);
-        // }),
-        catchError(error => {
-          console.error(error);
-          this.loading = false;
-          this.errorMsg = error.message;
-          return EMPTY;
-        })
-      ).subscribe();
+      this.posts.createPost(newPost, this.postForm.get('image')!.value).pipe().subscribe();
+      this.router.navigate(['/post'])
     } else if (this.mode === 'edit') {
       this.posts.modifyPost(this.post._id, newPost, this.postForm.get('image')!.value).pipe(
         // tap(({ message }) => {
@@ -102,6 +90,7 @@ export class PostFormComponent implements OnInit {
           return EMPTY;
         })
       )
+      this.router.navigate(['/post']);
     }
   }
 
@@ -114,5 +103,9 @@ export class PostFormComponent implements OnInit {
       this.imagePreview = reader.result as string;
     };
     reader.readAsDataURL(file);
+  }
+
+  onBack() {
+    this.router.navigate(['/post']);
   }
 }

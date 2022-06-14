@@ -1,4 +1,3 @@
-const Post = require('../models/Post');
 const Posts = require('../models/Post');
 
 exports.createPost = (req, res, next) => {
@@ -72,7 +71,7 @@ exports.deletePost = (req, res, next) => {
                         .catch(error => res.status(400).json({ error }));
                 });
             }else{
-                res.status(403).json({ message: 'Vous ne pouvez pas supprimer ce post !' })
+                res.status(403).json({ message: 'Vous ne pouvez pas supprimer ce Post !' })
             }
         })
         .catch(error => res.status(500).json({ error }));

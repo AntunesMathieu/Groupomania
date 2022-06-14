@@ -1,0 +1,71 @@
+.post-form{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group-back{
+    margin-top: 25px;
+    margin-bottom: 50px;
+
+    button{
+        border-color: #4E5166;
+        color: #FD2D01;
+        background-color: white;
+        width: 150px;
+        height: 35px;
+        font-size: 22px;
+    }
+}
+
+img{
+    max-height: 100px;
+    display:block;
+    margin-top:10px
+}
+
+.form-group-image{
+    & input{
+        display: none;
+    }
+}
+
+.submit-post{
+    width: 160px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    color: #FD2D01;
+    border-color: #4E5166;
+}
+
+.form-group-post{
+    display: flex;
+    flex-direction: column;
+
+    label{
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #FD2D01;
+    }
+
+    input{
+        height: 180px;
+        width: 300px;
+        background-color: white;
+        color: #FD2D01;
+        border-color: #4E5166;
+    }
+}
+
+.add-image{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 187px;
+    border-color: #4E5166;
+    width: 120px;
+    background-color: white;
+    color: #FD2D01;
+    font-size: 15px;
+    font-weight: bold;
+}

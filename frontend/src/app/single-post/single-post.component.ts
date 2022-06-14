@@ -17,7 +17,6 @@ export class SinglePostComponent implements OnInit {
   userId!: string;
   likePending!: boolean;
   likes!: boolean;
-  dislikes!: boolean;
   errorMessage!: string;
 
   constructor(private posts: PostService,
@@ -36,17 +35,12 @@ export class SinglePostComponent implements OnInit {
         this.loading = false;
         if (post.usersLiked.find(user => user === this.userId)) {
           this.likes = true;
-        } else if (post.usersDisliked.find(user => user === this.userId)) {
-          this.dislikes = true;
         }
       })
     );
   }
 
   onLikes() {
-    if (this.dislikes) {
-      return;
-    }
     this.likePending = true;
     this.post$.pipe(
       take(1),
@@ -56,24 +50,6 @@ export class SinglePostComponent implements OnInit {
           this.likes = likes;
         }),
         map(likes => ({ ...post, likes: likes ? post.likes + 1 : post.likes - 1 })),
-        tap(post => this.post$ = of(post))
-      )),
-    ).subscribe();
-  }
-  
-  onDislikes() {
-    if (this.likes) {
-      return;
-    }
-    this.likePending = true;
-    this.post$.pipe(
-      take(1),
-      switchMap((post: Post) => this.posts.dislikePost(post._id, !this.dislikes).pipe(
-        tap(dislikes => {
-          this.likePending = false;
-          this.dislikes = dislikes;
-        }),
-        map(dislikes => ({ ...post, dislikes: dislikes ? post.dislikes + 1 : post.dislikes - 1 })),
         tap(post => this.post$ = of(post))
       )),
     ).subscribe();
@@ -90,22 +66,22 @@ export class SinglePostComponent implements OnInit {
     ).subscribe();
   }
 
-  // onDelete() {
-  //   this.loading = true;
-  //   this.post$.pipe(
-  //     take(1),
-  //     switchMap(post => this.posts.deletePost(post._id)),
-  //     tap(message => {
-  //       console.log(message);
-  //       this.loading = false;
-  //       this.router.navigate(['/post']);
-  //     }),
-  //     catchError(error => {
-  //       this.loading = false;
-  //       this.errorMessage = error.message;
-  //       console.error(error);
-  //       return EMPTY;
-  //     })
-  //   ).subscribe();
-  // }
+  onDelete() {
+    this.loading = true;
+    this.post$.pipe(
+      take(1),
+      switchMap(post => this.posts.deletePost(post._id)),
+      tap(message => {
+        console.log(message);
+        this.loading = false;
+        this.router.navigate(['/post']);
+      }),
+      catchError(error => {
+        this.loading = false;
+        this.errorMessage = error.message;
+        console.error(error);
+        return EMPTY;
+      })
+    ).subscribe();
+  }
 }

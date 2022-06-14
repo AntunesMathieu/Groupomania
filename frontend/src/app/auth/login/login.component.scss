@@ -1,21 +1,46 @@
-.form{
-    margin-top: 25px;
-}
-.form-group{
+.login{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    margin-top: 150px;
 
-    & label{
+    & .form-group{
+        display: flex;
+        align-items: baseline;
+        margin: auto;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+
+    & form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & button{
+        font-size: 16px;
+        font-weight: bold;
+        width: 32%;
+        margin-left: 248px;
+        border-color: #4E5166;
         color: #FD2D01;
-        margin-right: 15px;
+        background-color: white;
     }
 
     & input{
-        width: 300px;
-        height: 20px;
+        margin-bottom: 15px;
+        height: 28px;
+        width: 220px;
+        border-color: #4E5166;
     }
-}
 
-.name{
-    color: #FD2D01;
+    & label{
+        margin-right: 15px;
+        color: #FD2D01;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    & .text-danger{
+        display: none;
+    }
 }
