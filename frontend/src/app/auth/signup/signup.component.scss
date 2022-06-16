@@ -44,3 +44,24 @@
         display: none;
     }
 }
+
+// PARTIE MOBILE
+
+@media(max-width: 400px){
+    .signup{
+        label{
+            font-size: 20px;
+            margin-right: 12px;
+        }
+
+        input{
+            width: 172px;
+        }
+
+        button{
+            font-size: 15px;
+            width: 30%;
+            margin-left: 215px;
+        }
+    }
+}

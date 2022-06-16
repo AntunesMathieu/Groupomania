@@ -1,14 +1,15 @@
 const Posts = require('../models/Post');
 
 exports.createPost = (req, res, next) => {
-    const postObject = JSON.parse(req.body.post);
-    delete postObject._id
+    const postsObject = JSON.parse(req.body.sauce);
+    delete postsObject._id
     const posts = new Posts({
-        ...postObject,
+        ...postsObject,
         likes: 0,
         dislikes: 0,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     });
+    console.log(posts);
     posts.save().then(
         () => {
             res.status(201).json({

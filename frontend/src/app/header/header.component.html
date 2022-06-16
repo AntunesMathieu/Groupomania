@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <div id="logo">
         <img src="../../assets/images/logo.png" alt="Logo Groupomania orange">
     </div>
@@ -27,4 +27,39 @@
             </li>
         </ul>
     </div>
-</header>
+</header> -->
+
+<nav>
+    <div id="logo">
+        <img alt="Flame logo" src="../../assets/images/logo.png">
+    </div>
+    <div class="right-nav">
+      <ul>
+        <li>
+          <a routerLink="signup" routerLinkActive="active" *ngIf="!(isAuth$ | async)">
+            Créer un compte
+          </a>
+        </li>
+        <li>
+          <a routerLink="login" routerLinkActive="active" *ngIf="!(isAuth$ | async)">
+            Se connecter
+          </a>
+        </li>
+        <li>
+          <a (click)="onLogout()" *ngIf="isAuth$ | async">
+            Se deconnecter
+          </a>
+        </li>
+        <li>
+            <a routerLink="post" routerLinkActive="active" *ngIf="isAuth$ | async">
+              Post
+            </a>
+          </li>
+          <li>
+            <a routerLink="create-post" routerLinkActive="active" *ngIf="isAuth$ | async">
+              Créer un post
+            </a>
+          </li>
+      </ul>
+    </div>
+</nav>  

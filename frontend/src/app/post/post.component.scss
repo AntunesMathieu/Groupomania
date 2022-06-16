@@ -61,10 +61,24 @@
 }
 
 .post-list-item{
-  width: 30%;
+  width: 50%;
   margin: 20px auto;
   padding: 10px 30px;
   margin-bottom: 15px;
   box-shadow: #FFD7D7 4px 4px 20px;
   border-radius: 20px;
+}
+
+// PARTIE MOBILE
+
+@media(max-width: 868px){
+  .post-list-item{
+    width: 50%;
+  }
+}
+
+@media(max-width: 382px){
+  .post-list-item{
+    width: 55%;
+  }
 }

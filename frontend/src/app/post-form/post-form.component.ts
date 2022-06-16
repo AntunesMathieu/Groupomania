@@ -55,7 +55,6 @@ export class PostFormComponent implements OnInit {
     this.postForm = this.formBuilder.group({
       image: [null, Validators.required],
       text: [null, Validators.required],
-      location: [null, Validators.required]
     });
   }  
 
@@ -63,7 +62,6 @@ export class PostFormComponent implements OnInit {
     this.postForm = this.formBuilder.group({
       image: [post.imageUrl, Validators.required],
       text: [post.text, Validators.required],
-      location: [post.location, Validators.required]
     });
     this.imagePreview = this.post.imageUrl
   }

@@ -19,8 +19,9 @@
 
 img{
     max-height: 100px;
-    display:block;
-    margin-top:10px
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .form-group-image{
@@ -69,3 +70,17 @@ img{
     font-size: 15px;
     font-weight: bold;
 }
+
+// PARTIE MOBILE
+
+@media(max-width: 868px){
+    .post-list{
+      min-width: 50%;
+    }
+  }
+  
+  @media(max-width: 382px){
+    .post-list{
+      width: 55%;
+    }
+  }

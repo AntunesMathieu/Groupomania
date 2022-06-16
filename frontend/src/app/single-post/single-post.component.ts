@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { catchError, EMPTY, iif, map, Observable, of, switchMap, take, tap } from 'rxjs';
+import { catchError, EMPTY, map, Observable, of, switchMap, take, tap } from 'rxjs';
 import { Post } from '../models/Post.model';
 import { PostService } from '../services/posts.service';
 
