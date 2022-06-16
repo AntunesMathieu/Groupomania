@@ -53,6 +53,7 @@ export class SinglePostComponent implements OnInit {
         tap(post => this.post$ = of(post))
       )),
     ).subscribe();
+    this.router.navigate(['/post'])
   }
 
   onBack() {

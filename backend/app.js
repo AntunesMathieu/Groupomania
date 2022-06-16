@@ -1,11 +1,15 @@
 const express = require('express');
+const dotenv = require ('dotenv').config();
 const mongoose = require('mongoose');
 const path = require('path');
+const helmet = require("helmet");
+const rateLimit = require('express-rate-limit');
 
+const MONGODB = process.env.MONGODB
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 
-mongoose.connect('mongodb+srv://Mathieu94:Claire94!@porjet7.wsakx.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(MONGODB,
     { 
         useNewUrlParser: true,
         useUnifiedTopology: true 
@@ -23,12 +27,22 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(helmet({ crossOriginResourcePolicy: false }));
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, //15 minutes
+    max: 150, //Limitez chaque ip à 100 requêtes par windowMs
+    message: 'Trop de requête ont été effectuées !'
+});
+
+//Appliquer à toutes les demandes
+app.use(limiter); //app.use('/api/, limiter)
+
 
 app.use('/api/auth', userRoutes);
 app.use('/api/post', postRoutes);
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
 module.exports = app;

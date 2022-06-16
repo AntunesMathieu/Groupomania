@@ -8,6 +8,7 @@
       <div class="like-buttons" *ngIf="!likePending">
           <div class="likes">
             <li [ngClass]="{ 'fas liked': likes, 'far': !likes}" class="fa-solid fa-thumbs-up button-likes"(click)="onLikes()"></li>
+            <span>{{ Post.likes }}</span>
           </div>
       </div>
       <div class="control-buttons">

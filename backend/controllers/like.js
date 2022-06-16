@@ -37,38 +37,6 @@ exports.likePost = (req, res, next) => {
                     .catch((error) => res.status(400).json({ error }));
 
             };
-
-
-            //like = -1 (dislike = +1)
-            if (!post.usersDisliked.includes(req.body.userId) && req.body.like === -1) {
-                Posts.updateOne(
-                    { _id: req.params.id },
-                    {
-                        $inc: { dislikes: 1 },
-                        $push: { usersDisliked: req.body.userId },
-                    }
-                )
-                    .then(() => res.status(201).json({ Message: 'Post dislike +1' }))
-                    .catch((error) => res.status(400).json({ error }));
-
-            };
-
-
-            //like = 0 (dislike = 0)
-            if (post.usersDisliked.includes(req.body.userId) && req.body.like === 0) {
-                Posts.updateOne(
-                    { _id: req.params.id },
-                    {
-                        $inc: { dislikes: -1 },
-                        $pull: { usersDisliked: req.body.userId },
-                    }
-                )
-                    .then(() => res.status(201).json({ Message: 'Post dislike -1' }))
-                    .catch((error) => res.status(400).json({ error }));
-
-            };
-
-
         })
         .catch((error) => res.status(404).json({ error }));
 }

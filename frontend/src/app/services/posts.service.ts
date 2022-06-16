@@ -29,13 +29,13 @@ export class PostService {
         );
     }
 
-    likePost(id: string, likes: boolean) {
+    likePost(id: string, like: boolean) {
         return this.http.post<{ message: string }>(
-            'http://localhost:3000/api/post/' + id + '/like',
-            { userId: this.auth.getUserId(), like: likes ? -1 : 0 }
+          'http://localhost:3000/api/post/' + id + '/like',
+          { userId: this.auth.getUserId(), like: like ? 1 : 0 }
         ).pipe(
-            mapTo(likes),
-            catchError(error => throwError(error.error.message))
+          mapTo(like),
+          catchError(error => throwError(error.error.message))
         );
     }
 
