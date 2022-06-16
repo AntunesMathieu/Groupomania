@@ -75,19 +75,7 @@ export class PostFormComponent implements OnInit {
       this.posts.createPost(newPost, this.postForm.get('image')!.value).pipe().subscribe();
       this.router.navigate(['/post'])
     } else if (this.mode === 'edit') {
-      this.posts.modifyPost(this.post._id, newPost, this.postForm.get('image')!.value).pipe(
-        // tap(({ message }) => {
-        //   console.log(message);
-        //   this.loading = false;
-        //   this.router.navigate(['/post']);
-        // }),
-        catchError(error => {
-          console.error(error);
-          this.loading = false;
-          this.errorMsg = error.message;
-          return EMPTY;
-        })
-      )
+      this.posts.modifyPost(this.post._id, newPost, this.postForm.get('image')!.value).pipe().subscribe();
       this.router.navigate(['/post']);
     }
   }

@@ -3,7 +3,7 @@ const Posts = require('../models/Post')
 exports.likePost = (req, res, next) => {
 
     //aller chercher l'objet dans la base de donnée
-    Sauces.findOne({ _id: req.params.id })
+    Posts.findOne({ _id: req.params.id })
         .then((post) => {
             //like = 1 (like = +1)
             //utilisation de la methode includes()
@@ -20,7 +20,7 @@ exports.likePost = (req, res, next) => {
                         $push: { usersLiked: req.body.userId }
                     }
                 )
-                    .then(() => res.status(201).json({ Message: 'Sauce like +1' }))
+                    .then(() => res.status(201).json({ Message: 'Post like +1' }))
                     .catch((error) => res.status(400).json({ error }));
             };
 
@@ -33,40 +33,40 @@ exports.likePost = (req, res, next) => {
                         $pull: { usersLiked: req.body.userId },
                     }
                 )
-                    .then(() => res.status(201).json({ Message: 'Sauce like 0' }))
+                    .then(() => res.status(201).json({ Message: 'Post like 0' }))
                     .catch((error) => res.status(400).json({ error }));
 
             };
 
 
-            // //like = -1 (dislike = +1)
-            // if (!post.usersDisliked.includes(req.body.userId) && req.body.like === -1) {
-            //     Posts.updateOne(
-            //         { _id: req.params.id },
-            //         {
-            //             $inc: { dislikes: 1 },
-            //             $push: { usersDisliked: req.body.userId },
-            //         }
-            //     )
-            //         .then(() => res.status(201).json({ Message: 'Sauce dislike +1' }))
-            //         .catch((error) => res.status(400).json({ error }));
+            //like = -1 (dislike = +1)
+            if (!post.usersDisliked.includes(req.body.userId) && req.body.like === -1) {
+                Posts.updateOne(
+                    { _id: req.params.id },
+                    {
+                        $inc: { dislikes: 1 },
+                        $push: { usersDisliked: req.body.userId },
+                    }
+                )
+                    .then(() => res.status(201).json({ Message: 'Post dislike +1' }))
+                    .catch((error) => res.status(400).json({ error }));
 
-            // };
+            };
 
 
-            // //like = 0 (dislike = 0)
-            // if (post.usersDisliked.includes(req.body.userId) && req.body.like === 0) {
-            //     Posts.updateOne(
-            //         { _id: req.params.id },
-            //         {
-            //             $inc: { dislikes: -1 },
-            //             $pull: { usersDisliked: req.body.userId },
-            //         }
-            //     )
-            //         .then(() => res.status(201).json({ Message: 'Sauce dislike -1' }))
-            //         .catch((error) => res.status(400).json({ error }));
+            //like = 0 (dislike = 0)
+            if (post.usersDisliked.includes(req.body.userId) && req.body.like === 0) {
+                Posts.updateOne(
+                    { _id: req.params.id },
+                    {
+                        $inc: { dislikes: -1 },
+                        $pull: { usersDisliked: req.body.userId },
+                    }
+                )
+                    .then(() => res.status(201).json({ Message: 'Post dislike -1' }))
+                    .catch((error) => res.status(400).json({ error }));
 
-            // };
+            };
 
 
         })
