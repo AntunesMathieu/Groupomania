@@ -34,30 +34,6 @@
         box-shadow: #FFD7D7 0 0 5px;
       }
     }
-    .like
-    {
-      background-color: rgba(green, 0.4);
-      color: #000;
-      button {
-        box-shadow: green 3px 3px 7px;
-        color: #000;
-        &:active {
-          box-shadow: green 0 0 5px;
-        }
-      }
-    }
-  
-    .dislike {
-      background-color: rgba(#FD2D01, 0.4);
-      color: #000;
-      button {
-        box-shadow: #FD2D01 3px 3px 7px;
-        color: #000;
-        &:active {
-          box-shadow: #FD2D01 0 0 5px;
-        }
-      }
-    }
 }
 
 .post-list-item{
@@ -67,6 +43,17 @@
   margin-bottom: 15px;
   box-shadow: #FFD7D7 4px 4px 20px;
   border-radius: 20px;
+
+  .texte{
+    font-size: 22px;
+    color: #FD2D01;
+  }
+
+  .like{
+    font-size: 20px;
+    font-weight: bold;
+    color: #FD2D01;
+  }
 }
 
 // PARTIE MOBILE

@@ -7,8 +7,8 @@
         <div class="post-list" *ngIf="!loading && posts.length  > 0">
           <div class="post-list-item" *ngFor="let post of posts" (click)="onClickPost(post._id)">
             <img [src]="post.imageUrl">
-            <p>{{ post.text }}</p>
-            <p>Like : {{ post.likes }}</p>
+            <p class="texte">{{ post.text }}</p>
+            <p class="like">Like : {{ post.likes }}</p>
           </div>
         </div>
       </ng-container>

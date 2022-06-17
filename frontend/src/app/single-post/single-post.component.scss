@@ -31,25 +31,16 @@
     .like-buttons{
         font-size: 20px;
         margin-bottom: 12px;
-
-        &:focus {
-            color: #FD2D01;
-        }
     }
 
     .button-likes {
-        &:hover {
-          color: rgba(51, 219, 0, 1);
+        &:active {
+            color: #FD2D01;
         }
       }
 
     img{
         max-width: 100%;
-    }
-    
-    .fa-thumbs-up{
-        color: black;
-        display: flex;
     }
 
     .control-buttons{
