@@ -2,16 +2,16 @@
   <button (click)="onBack()">Retour post</button>
 </div>
 <div class="post-form">
-<form [formGroup]="postForm" *ngIf="!loading">
-  <div class="form-group-post">
-    <label for="text">Rédigez votre post</label>
-    <input type="text" class="form-control" id="text" formControlName="text">
-  </div>
-  <div class="form-group-image">
-    <input type="file" accept="image/*" #imageInput (change)="onFileAdd($event)">
-    <button (click)="imageInput.click()" class="add-image">ADD IMAGE</button>
-    <img [src]="imagePreview" *ngIf="imagePreview">
-  </div>
-  <button (click)="onSubmit()" class="submit-post">Créer un post</button>
-</form>
+  <form [formGroup]="postForm" *ngIf="!loading">
+    <div class="form-group-post">
+      <label for="text">Rédigez votre post</label>
+      <input type="text" class="form-control" id="text" formControlName="text">
+    </div>
+    <div class="form-group-image">
+      <input type="file" accept="image/*" #imageInput (change)="onFileAdd($event)">
+      <button (click)="imageInput.click()" class="add-image">ADD IMAGE</button>
+      <img [src]="imagePreview" *ngIf="imagePreview">
+    </div>
+    <button (click)="onSubmit()" class="submit-post">Poster</button>
+  </form>
 </div>

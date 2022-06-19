@@ -7,6 +7,10 @@
         width: 150px;
         height: 35px;
         font-size: 22px;
+
+        &:hover{
+            box-shadow: #FFD7D7 4px 4px 4px;
+        }
     }
 }
 .post-card{
@@ -25,7 +29,8 @@
 
     .text{
         font-size: 22px;
-        color: #FD2D01;
+        font-weight: bold;
+        color: #4E5166;
     }
 
     .like-buttons{
@@ -34,10 +39,8 @@
     }
 
     .button-likes {
-        &:active {
-            color: #FD2D01;
-        }
-      }
+        color: #FD2D01;
+    }
 
     img{
         max-width: 100%;
@@ -59,7 +62,7 @@
 @media(max-width: 868px){
     .post-card{
         .post-list{
-            width: 50%;
+            width: 80%;
         }
     }
   }
@@ -67,7 +70,7 @@
   @media(max-width: 382px){
     .post-card{
         .post-list{
-            width: 60%;
+            width: 80%;
         }
     }
   }

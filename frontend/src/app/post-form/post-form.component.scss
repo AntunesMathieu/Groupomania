@@ -14,6 +14,10 @@
         width: 150px;
         height: 35px;
         font-size: 22px;
+
+        &:hover{
+            box-shadow: #FFD7D7 4px 4px 4px;
+        }
     }
 }
 
@@ -54,8 +58,9 @@ img{
         height: 180px;
         width: 300px;
         background-color: white;
-        color: #FD2D01;
+        color: #4E5166;
         border-color: #4E5166;
+        font-size: 16px;
     }
 }
 
@@ -74,13 +79,13 @@ img{
 // PARTIE MOBILE
 
 @media(max-width: 868px){
-    .post-list{
-      min-width: 50%;
+    .post-form{
+      width: 100%;
     }
   }
   
-  @media(max-width: 382px){
-    .post-list{
-      width: 55%;
+@media(max-width: 382px){
+    .post-form{
+      width: 100%;
     }
-  }
+}

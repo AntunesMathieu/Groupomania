@@ -18,6 +18,7 @@
     .text{
       font-weight: bold;
       font-size: 22px;
+      color: #4E5166;
     }
     button {
       background-color: transparent;
@@ -44,15 +45,10 @@
   box-shadow: #FFD7D7 4px 4px 20px;
   border-radius: 20px;
 
-  .texte{
-    font-size: 22px;
-    color: #FD2D01;
-  }
-
   .like{
     font-size: 20px;
     font-weight: bold;
-    color: #FD2D01;
+    color: #4E5166;
   }
 }
 
@@ -60,12 +56,12 @@
 
 @media(max-width: 868px){
   .post-list-item{
-    width: 50%;
+    width: 80%;
   }
 }
 
 @media(max-width: 382px){
   .post-list-item{
-    width: 55%;
+    width: 80%;
   }
 }
