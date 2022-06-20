@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, mapTo, of, Subject, tap, throwError } from 'rxjs';
+import { catchError, mapTo, of, Subject, tap, throwError } from 'rxjs';
 import { Post } from '../models/Post.model';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';

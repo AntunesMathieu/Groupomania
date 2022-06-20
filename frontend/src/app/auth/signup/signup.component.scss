@@ -21,8 +21,8 @@
         font-weight: bold;
         width: 32%;
         margin-left: 247px;
-        border-color: #4E5166;
-        color: #FD2D01;
+        border-color: #FD2D01;
+        color: #4E5166;
         background-color: white;
     }
 
@@ -30,12 +30,13 @@
         margin-bottom: 15px;
         height: 28px;
         width: 220px;
-        border-color: #4E5166;
+        border-color: #FD2D01;
+        font-size: 15px;
     }
 
     & label{
         margin-right: 15px;
-        color: #FD2D01;
+        color: #4E5166;
         font-size: 22px;
         font-weight: bold;
     }
