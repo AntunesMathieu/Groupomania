@@ -42,7 +42,9 @@
     }
 
     & .text-danger{
-        display: none;
+        display: flex;
+        font-size: 15px;
+        margin-left: -117px;
     }
 }
 
@@ -51,7 +53,7 @@
 @media(max-width: 400px){
     .signup{
         label{
-            font-size: 20px;
+            font-size: 18px;
             margin-right: 12px;
         }
 
@@ -62,7 +64,7 @@
         button{
             font-size: 15px;
             width: 30%;
-            margin-left: 215px;
+            margin-left: 208px;
         }
     }
 }

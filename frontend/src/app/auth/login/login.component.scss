@@ -42,7 +42,9 @@
     }
 
     & .text-danger{
-        display: none;
+        display: flex;
+        font-size: 15px;
+        margin-left: -115px;
     }
 }
 
@@ -51,7 +53,7 @@
 @media(max-width: 400px){
     .login{
         label{
-            font-size: 20px;
+            font-size: 18px;
         }
 
         input{
@@ -61,7 +63,7 @@
         button{
             font-size: 15px;
             width: 30%;
-            margin-left: 215px;
+            margin-left: 208px;
         }
     }
 }
