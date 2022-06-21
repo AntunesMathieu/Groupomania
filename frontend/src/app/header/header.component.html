@@ -4,28 +4,28 @@
     </div>
     <div class="right-nav">
       <ul>
-        <li>
-          <a routerLink="signup" routerLinkActive="active" *ngIf="!(isAuth$ | async)">
+        <li *ngIf="!(isAuth$ | async)">
+          <a routerLink="signup" routerLinkActive="active" >
             Créer un compte
           </a>
         </li>
-        <li>
-          <a routerLink="login" routerLinkActive="active" *ngIf="!(isAuth$ | async)">
+        <li *ngIf="!(isAuth$ | async)">
+          <a routerLink="login" routerLinkActive="active">
             Se connecter
           </a>
         </li>
-        <li>
-          <a (click)="onLogout()" *ngIf="isAuth$ | async">
+        <li *ngIf="isAuth$ | async">
+          <a (click)="onLogout()">
             Se deconnecter
           </a>
         </li>
-        <li>
-            <a routerLink="post" routerLinkActive="active" *ngIf="isAuth$ | async">
+        <li *ngIf="isAuth$ | async">
+            <a routerLink="post" routerLinkActive="active">
               Post
             </a>
           </li>
-          <li>
-            <a routerLink="create-post" routerLinkActive="active" *ngIf="isAuth$ | async">
+          <li *ngIf="isAuth$ | async">
+            <a routerLink="create-post" routerLinkActive="active">
               Créer un post
             </a>
           </li>

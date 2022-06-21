@@ -3,7 +3,7 @@
 </div>
 <div class="post-card">
   <div *ngIf="post$ | async as Post" class="post-list">
-      <img [src]="Post.imageUrl">
+      <img [src]="Post.imageUrl" alt="image du post">
       <p class="text">{{ Post.text }}</p>
       <div class="like-buttons" *ngIf="!likePending">
           <div class="likes">
@@ -11,8 +11,8 @@
           </div>
       </div>
       <div class="control-buttons">
-          <button (click)="onModify()" *ngIf="userId === Post.userId">Modifier</button>
-          <button (click)="onDelete()" *ngIf="userId === Post.userId">Supprimer</button>
+          <button (click)="onModify()" *ngIf="userId === Post.userId || admin">Modifier</button>
+          <button (click)="onDelete()" *ngIf="userId === Post.userId || admin">Supprimer</button>
       </div>
   </div>
 </div>

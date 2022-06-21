@@ -15,6 +15,7 @@ export class SinglePostComponent implements OnInit {
   loading!: boolean;
   post$!: Observable<Post>;
   userId!: string;
+  admin!: boolean;
   likePending!: boolean;
   likes!: boolean;
   errorMessage!: string;
@@ -26,6 +27,7 @@ export class SinglePostComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.auth.getUserId();
+    this.admin = this.auth.getAdmin();
     this.loading = true;
     this.userId = this.auth.getUserId();
     this.post$ = this.route.params.pipe(
@@ -50,10 +52,10 @@ export class SinglePostComponent implements OnInit {
           this.likes = likes;
         }),
         map(likes => ({ ...post, likes: likes ? post.likes + 1 : post.likes - 1 })),
-        tap(post => this.post$ = of(post))
       )),
-    ).subscribe();
-    this.router.navigate(['/post'])
+    ).subscribe(() => {
+      this.router.navigate(['/post'])
+    });
   }
 
   onBack() {
@@ -73,7 +75,6 @@ export class SinglePostComponent implements OnInit {
       take(1),
       switchMap(post => this.posts.deletePost(post._id)),
       tap(message => {
-        console.log(message);
         this.loading = false;
         this.router.navigate(['/post']);
       }),

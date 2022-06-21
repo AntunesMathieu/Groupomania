@@ -8,8 +8,8 @@ exports.createPost = (req, res, next) => {
     const posts = new Posts({
         ...postsObject,
         likes: 0,
-        dislikes: 0,
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+        imageUrl: req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : "",
+        createdDate: new Date (),
     });
     console.log(posts);
     posts.save().then(
@@ -46,7 +46,7 @@ exports.getOnePost = (req, res, next) => {
 exports.modifyPost = (req, res, next) => {
     Posts.findOne({ _id: req.params.id })
         .then(posts => {
-            if(posts.userId === req.userId){
+            if(posts.userId === req.userId || req.admin){
                 const postsObject = req.file ?
                 {
                     ...JSON.parse(req.body.post),
@@ -65,7 +65,7 @@ exports.modifyPost = (req, res, next) => {
 exports.deletePost = (req, res, next) => {
     Posts.findOne({ _id: req.params.id })
         .then(posts => {
-            if(posts.userId === req.userId){
+            if(posts.userId === req.userId || req.admin){
                 const filename = posts.imageUrl.split('/images/')[1];
                 fs.unlink(`images/${filename}`, () => {
                     Posts.deleteOne({ _id: req.params.id })
@@ -80,7 +80,7 @@ exports.deletePost = (req, res, next) => {
 };
 
 exports.getAllPost = (req, res, next) => {
-    Posts.find().then(
+    Posts.find().sort({createdDate: -1}).then(
         (posts) => {
             res.status(200).json(posts);
         }

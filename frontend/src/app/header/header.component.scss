@@ -60,6 +60,12 @@ a{
     align-items: center;
   }
 
+  .right-nav{
+    ul{
+      justify-content: center;
+    }
+  }
+
   li{
     width: 165px;
     margin-right: 0;
@@ -71,4 +77,14 @@ a{
     width: 100%;
   }
   
+}
+
+@media(max-width: 444px){
+  .right-nav{
+    ul{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
 }

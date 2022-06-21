@@ -8,7 +8,7 @@
         <label for="password">Mot de passe</label>
         <input type="password" class="form-control" id="password" formControlName="password">
       </div>
-      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="onLogin()">Connection</button>
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="onLogin()">Connexion</button>
       <p class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</p>
   </form>
 </div>
