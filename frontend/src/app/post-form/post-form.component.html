@@ -1,5 +1,5 @@
 <div class="form-group-back">
-  <button (click)="onBack()">Retour post</button>
+  <button (click)="onBack()">Retour posts</button>
 </div>
 <div class="post-form">
   <form [formGroup]="postForm" *ngIf="!loading">
@@ -9,7 +9,7 @@
     </div>
     <div class="form-group-image">
       <input type="file" accept="image/*" #imageInput (change)="onFileAdd($event)">
-      <button (click)="imageInput.click()" class="add-image">Ajouter une image</button>
+      <button (click)="imageInput.click()" class="add-image">Ajoutez une image</button>
       <img [src]="imagePreview" *ngIf="imagePreview">
     </div>
     <button (click)="onSubmit()" class="submit-post">Poster</button>
