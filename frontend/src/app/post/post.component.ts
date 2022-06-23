@@ -23,7 +23,6 @@ export class PostComponent implements OnInit {
     this.posts$ = this.post.posts$.pipe(
       tap(() => {
         this.loading = false;
-        this.errorMsg = '';
       }),
       catchError(error => {
         this.errorMsg = JSON.stringify(error);

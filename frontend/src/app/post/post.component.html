@@ -1,15 +1,15 @@
 <div class="post-card">
-    <ng-container *ngIf="posts$ | async as posts">
-        <p *ngIf="!loading && posts.length <= 0">
+  <ng-container *ngIf="posts$ | async as posts">
+    <p *ngIf="!loading && posts.length <= 0">
           Pas de post disponible !
-        </p>
-        <p class="list-title" *ngIf="!loading && posts.length > 0">LES POSTS</p>
-        <div class="post-list" *ngIf="!loading && posts.length  > 0">
-          <div class="post-list-item" *ngFor="let post of posts" (click)="onClickPost(post._id)">
-            <img [src]="post.imageUrl" alt="image du post" />
-            <p class="text">{{ post.text }}</p>
-            <p class="like">Like : {{ post.likes }}</p>
-          </div>
-        </div>
-      </ng-container>
+    </p>
+    <p class="list-title" *ngIf="!loading && posts.length > 0">LES POSTS</p>
+    <div class="post-list" *ngIf="!loading && posts.length  > 0">
+      <div class="post-list-item" *ngFor="let post of posts" (click)="onClickPost(post._id)">
+        <img [src]="post.imageUrl" alt="image du post" />
+        <p class="text">{{ post.text }}</p>
+        <p class="like">Like : {{ post.likes }}</p>
+      </div>
+    </div>
+  </ng-container>
 </div>

@@ -32,7 +32,6 @@ export class PostFormComponent implements OnInit {
       switchMap(params => {
         if (!params['id']){
           this.mode = 'new';
-          this.initEmptyForm();
           this.loading = false;
           return EMPTY;
         } else {
@@ -50,13 +49,7 @@ export class PostFormComponent implements OnInit {
       catchError(error => this.errorMsg = JSON.stringify(error))
     ).subscribe();
   }
-
-  initEmptyForm() {
-    this.postForm = this.formBuilder.group({
-      image: [null, Validators.required],
-      text: [null, Validators.required],
-    });
-  }  
+ 
 
   initModifyForm(post: Post) {
     this.postForm = this.formBuilder.group({
