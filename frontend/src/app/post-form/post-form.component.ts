@@ -27,6 +27,7 @@ export class PostFormComponent implements OnInit {
               private auth: AuthService) { }
 
   ngOnInit() {
+    this.initModifyForm();
     this.loading = true;
     this.route.params.pipe(
       switchMap(params => {
@@ -51,12 +52,12 @@ export class PostFormComponent implements OnInit {
   }
  
 
-  initModifyForm(post: Post) {
+  initModifyForm(post: Post|null = null) {
     this.postForm = this.formBuilder.group({
-      image: [post.imageUrl, Validators.required],
-      text: [post.text, Validators.required],
+      image: [post?.imageUrl, Validators.required],
+      text: [post?.text, Validators.required],
     });
-    this.imagePreview = this.post.imageUrl
+    this.imagePreview = this.post?.imageUrl
   }
 
   onSubmit() {

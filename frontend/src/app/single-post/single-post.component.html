@@ -3,7 +3,7 @@
 </div>
 <div class="post-card">
   <div *ngIf="post$ | async as Post" class="post-list">
-      <img [src]="Post.imageUrl" alt="image du post">
+      <img *ngIf="Post.imageUrl" [src]="Post.imageUrl" alt="image du post">
       <p class="text">{{ Post.text }}</p>
       <div class="like-buttons" *ngIf="!likePending">
           <div class="likes">
