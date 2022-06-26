@@ -16,3 +16,7 @@
  - Dans **IDE** fait ***cd frontend***,
  - Ensuite télécharger node_modules en faisant ***npm Install***,
  - Pour finir lancer le **server** en faisant ***ng serve***
+
+ ## ***.env.txt***
+
+ - Retrouver le lien **MongoDB** et le **TOKEN** dans le **fichier TXT** dans le fichier des livrables
