@@ -1,7 +1,7 @@
 <div class="post-card">
   <ng-container *ngIf="posts$ | async as posts">
     <p *ngIf="!loading && posts.length <= 0">
-          Pas de post disponible !
+          Pas de posts disponible !
     </p>
     <p class="list-title" *ngIf="!loading && posts.length > 0">LES POSTS</p>
     <div class="post-list" *ngIf="!loading && posts.length  > 0">

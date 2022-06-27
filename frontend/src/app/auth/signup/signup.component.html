@@ -9,8 +9,8 @@
             <input type="password" id="password" formControlName="password">
         </div>
         <button [disabled]="signupForm.invalid" (click)="onSignup()">Création</button>
-        <div class="text-danger">
-            <p *ngIf="errorMsg">{{ errorMsg }}</p>
-        </div>
     </form>
+</div>
+<div class="text-danger">
+    <p *ngIf="errorMsg">{{ errorMsg }}</p>
 </div>
