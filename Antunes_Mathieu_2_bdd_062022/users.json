@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "62b06494fa162d61eaad6d20" }, "email" : "admin@gmail.com", "password" : "$2b$10$D9fONoFoOxjpN.ehukwMWuXKnNB0DY/DpdcDIxdd1bkCIOo8SIO5S", "admin" : true, "__v" : 0 }
+{ "_id" : { "$oid" : "62bc410eafff52432687d981" }, "email" : "test@gmail.com", "password" : "$2b$10$IatrZNpMBAHPRr2ZC4yA9OZ68Wwe2rleziGMB098rZSQNoWTHqgOa", "admin" : false, "__v" : 0 }
+{ "_id" : { "$oid" : "62bc4156afff52432687d99d" }, "email" : "gamathieu.antunes@gmail.com", "password" : "$2b$10$1J3Pxhqr41D5jebLZi3PVu6wijJm2y9TPOgB9BKtJZ5qIpF5X1.KS", "admin" : false, "__v" : 0 }
